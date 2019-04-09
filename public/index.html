@@ -1,0 +1,31 @@
+<html>
+    <head lang="en">
+
+    </head>
+
+    <body>
+        <h1>Node Js</h1>
+        <!-- <form action="/authenticate" enctype="multipart/form-data" method="POST">
+            <input type="email" name="email"/>
+            <input type="submit" value="Submit">
+        </form> -->
+
+        <h2>All Type of files</h2>
+        <form action="/uploadfile" enctype="multipart/form-data" method="POST"> 
+            <input type="file" name="myFile" />
+            <input type="submit" value="Upload a file"/>
+         </form>
+          
+         <form action="/uploadmultiple"  enctype="multipart/form-data" method="POST">
+           Select images: <input type="file" name="myFiles" multiple>
+           <input type="submit" value="Upload your files"/>
+         </form>
+
+         <h2>Only image files</h2>
+         <form action="/uploadfile" enctype="multipart/form-data" method="POST"> 
+            <input type="file" name="myFile" accept="image/*"/>
+            <input type="submit" value="Upload a file"/>
+         </form>
+        
+    </body>
+</html>

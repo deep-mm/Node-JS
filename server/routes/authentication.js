@@ -1,6 +1,6 @@
 
 function authenticate(email){
-    if(email.length>10){
+    if (email.length>10){
         return true;
     }
     else{

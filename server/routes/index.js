@@ -49,16 +49,16 @@ router.get('/',function(req,res){
 router.get('/passArguments',function(req,res){
     data = {name: 'Deep', age: 22};
     res.sendFile(path.join(url+'public/index.html'),data);
-})
+});
 
 router.get('/settingCookie', function(req,res){
     res.cookie('name', 'express').send('cookie set');
-})
+});
 
 router.get('/checkingCookies', function(req,res){
     console.log('Cookies: ', req.cookies);
     res.send(req.cookies);
-})
+});
 
 router.get('/file',function(req,res){
     res.send('Number = '+linescount + '\n Lines = \n'+str);
@@ -75,10 +75,10 @@ router.get('/authenticate/:email',function(req,res){
 });
 
 router.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
-    const file = req.file
+    const file = req.file;
     if (!file) {
       const error = new Error('Please upload a file')
-      error.httpStatusCode = 400
+      error.httpStatusCode = 400;
       return next(error)
     }
       res.send(file)
@@ -86,10 +86,10 @@ router.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
 });
 
 router.post('/uploadmultiple', upload.array('myFiles', 12), (req, res, next) => {
-    const files = req.files
+    const files = req.files;
     if (!files) {
-      const error = new Error('Please choose files')
-      error.httpStatusCode = 400
+      const error = new Error('Please choose files');
+      error.httpStatusCode = 400;
       return next(error)
     }
    
@@ -98,7 +98,7 @@ router.post('/uploadmultiple', upload.array('myFiles', 12), (req, res, next) => 
 });
 
 router.get('*', (req, res) => {
-    res.send('Erro 404, Page not found');
+    res.send('Error 404, Page not found');
 });
 
 module.exports = router;

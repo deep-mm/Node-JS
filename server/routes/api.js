@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Student = require("../models/student");
 const path = require('path');
 
-const url = "mongodb://localhost:27017/students"
+const url = "mongodb://localhost:27017/students";
 mongoose.Promise = global.Promise;
 
 mongoose.connect(url,function(err,db){

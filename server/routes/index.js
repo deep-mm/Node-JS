@@ -74,17 +74,6 @@ router.get('/authenticate/:email',function(req,res){
     }
 });
 
-router.post('/authenticate',function(req,res){
-    var email = req.body;
-    console.log(email);
-    // if(logger.authenticate(email)){
-    //     res.send('Authentication Success');
-    // }
-    // else{
-    //     res.send('Authentication Failed');
-    // }
-});
-
 router.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
     const file = req.file
     if (!file) {

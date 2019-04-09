@@ -27,12 +27,12 @@ const api = require('./server/routes/api');
 const index = require('./server/routes/index');
 const port = 3000;
 
-app.use(middleware);
+//app.use(middleware);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({extended: true})); 
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
 app.use(cookieParser())
 
 console.log("Please input text in command line.");

@@ -46,13 +46,17 @@ router.get('/',function(req,res){
     res.sendFile(path.join(url+'public/index.html'));
 });
 
+router.get('/client',function(req,res){
+    res.sendFile(path.join(url+'public/client.html'));
+});
+
 router.get('/passArguments',function(req,res){
     data = {name: 'Deep', age: 22};
     res.sendFile(path.join(url+'public/index.html'),data);
 });
 
 router.get('/settingCookie', function(req,res){
-    res.cookie('name', 'express').send('cookie set');
+    res.cookie('subject', 'angular').send('cookie set');
 });
 
 router.get('/checkingCookies', function(req,res){
@@ -97,8 +101,13 @@ router.post('/uploadmultiple', upload.array('myFiles', 12), (req, res, next) => 
     
 });
 
-router.get('*', (req, res) => {
+router.get('*', function(req,res) {
     res.send('Error 404, Page not found');
 });
 
+router.use(function(err, req, res, next) {
+    res.status(404);
+    res.send("Oops, something went wrong. This is error 404. Please try again later.")
+ }); 
+ 
 module.exports = router;
